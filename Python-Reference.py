@@ -121,4 +121,19 @@ my_func()
 
 print()
 
+# Math Functions
+def add(x, y):
+	return x + y
+print(add(17, 5)) #=> Returns 22
 
+def subtract(x, y):
+	return x - y
+print(subtract(10, 5)) #=> Returns 5
+
+def multiply(x, y):
+	return x * y
+print(multiply(2, 2)) #=> Returns 4
+	
+def divide(x, y):
+	return x / y
+print(divide(8, 2)) #=> Returns 4
