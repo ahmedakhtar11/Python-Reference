@@ -284,6 +284,30 @@ for v in enumerate(nums):
 # (2, 77)
 # (3, 66)
 # (4, 22)
+
+# Ranges
+# Create a List/Array from 0-9
+numbers = list(range(10))
+print(numbers)
+#=> Prints [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+numbers = list(range(0, 10, 2))
+print(numbers)
+# Create a List/Array even nums from 0-9
+#=> Prints [0, 2, 4, 6, 8]
+
+# Exceptions in Python
+print("Exceptions in Python:")
+print('-' * 30)
+try:
+	print (5 / 0) # Can't Divide by zero!
+	print("Done calculation")
+# Ignore this type of error before
+except ZeroDivisionError:
+	print("Exception for zero division")
+# Do the following also regardles of anything before:
+finally:
+   print("This code will run no matter what")
 print()
 
 # Classes in Python
@@ -291,22 +315,64 @@ print("Classes in Python:")
 print('-' * 30)
 
 class Dog:
-
-	def __init__(self, name):
+# Initializing class
+	def __init__(self, name, color):
 		self.name = name
-		self.tricks = []	
+		self.color = color
 # create a new empty list for each dog
+		self.tricks = []
 
+# class functions:
 	def add_trick(self, trick):
 		self.tricks.append(trick)
 
-a = Dog('Bobby')
-b = Dog('Buddy')
-a.add_trick('catch the ball')
-b.add_trick('play fetch')
+# (Required class fields name & color)
+bobby = Dog('Bobby', 'Brown')
+buddy = Dog('Buddy', 'Blue')
 
-print(a.tricks)
+print(bobby.name)
+print(bobby.color)
+
+bobby.add_trick('catch the ball')
+buddy.add_trick('play fetch')
+
+print(bobby.tricks)
 #=> Prints ['catch the ball']
 
-print(b.tricks) 
+print(buddy.tricks) 
 #=> Prints ['play fetch']
+
+# Creating a sub class called Germanshepard, which inherits from the superclass of Dog.
+class Germanshepard(Dog):
+	def bark(self):
+		print("Woof")
+		
+husky = Germanshepard("Max", "grey")
+husky.bark() #=> Prints 'Woof'
+print()
+
+# Regular Expressions
+print("Regular Expressions:")
+print('-' * 30)
+
+import re #=> import regular expressions
+
+pattern = r"america"
+
+# Checks if words matches with the front
+if re.match(pattern, "canada,america,mexico,america"):
+	print("Match")
+else:
+	print("No matches")
+#=> Prints 'No Matches'
+
+# Checks if words matches anywhere in the String
+if re.search(pattern, "canada,america,mexico"):
+	print("Match")
+else:
+	print("No match")
+#=> Prints 'Match'
+
+# Returns all word matches in the String
+print(re.findall(pattern, "canada,america,mexico,america"))
+#=> Prints ['america', 'america']
